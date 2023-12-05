@@ -9,7 +9,7 @@ mtx = calibration_data['camMatrix']
 dist = calibration_data['distCoef']
 
 # Read an image
-img = cv.imread('images/image0.png')
+img = cv.imread('images/image8.png')
 h, w = img.shape[:2]
 
 # Get optimal new camera matrix

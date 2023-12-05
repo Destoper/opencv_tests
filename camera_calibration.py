@@ -22,7 +22,7 @@ else:
 obj_3D = np.zeros((CHESS_DIM[0] * CHESS_DIM[1], 3), np.float32)
 obj_3D[:,:2] = np.mgrid[0:CHESS_DIM[0], 0:CHESS_DIM[1]].T.reshape(-1, 2)
 obj_3D *= VERTICE_SIZE
-print(obj_3D)
+print(obj_3D, "\n")
 
 # Array to store object points and image points from all the images.
 obj_points_3D, img_points_2D = [], []
@@ -53,7 +53,8 @@ cv.destroyAllWindows()
 # Calibrating
 ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(obj_points_3D, img_points_2D, grayScale.shape[::-1], None, None)
 
-print(" \nCALIBRATED")
+print(" \n CAMERA MATRIX: \n", mtx, "\n")
+
 
 print("duming the data into one files using numpy")
 np.savez(
@@ -81,4 +82,4 @@ for i in range(len(obj_points_3D)):
     imgpoints2, _ = cv.projectPoints(obj_points_3D[i], rvecs[i], tvecs[i], mtx, dist)
     error = cv.norm(img_points_2D[i], imgpoints2, cv.NORM_L2)/len(imgpoints2)
     mean_error += error
-print( "total error: {}".format(mean_error/len(obj_points_3D)) )
+print( "Total Re-projection Error: {}".format(mean_error/len(obj_points_3D)) )

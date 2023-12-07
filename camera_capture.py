@@ -2,7 +2,7 @@ import cv2 as cv
 import os
 
 # Tamanho do tabuleiro
-CHESS_DIM = (9, 6)
+CHESS_DIM = (14, 10)
 
 image_counter = 0
 image_dir_path = "images"

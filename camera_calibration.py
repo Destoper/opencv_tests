@@ -2,10 +2,10 @@ import cv2 as cv
 import os
 import numpy as np
 
-CHESS_DIM = (9, 6)
+CHESS_DIM = (10, 14)
 
 #mm
-VERTICE_SIZE = 18 
+VERTICE_SIZE = 50
 
 criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 

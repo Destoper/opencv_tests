@@ -2,10 +2,10 @@ import cv2 as cv
 import os
 import numpy as np
 
-CHESS_DIM = (10, 14)
+CHESS_DIM = (14, 10)
 
 #mm
-VERTICE_SIZE = 50
+SIDE_SIZE = 50
 
 criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
@@ -21,7 +21,7 @@ else:
 # prepare object points
 obj_3D = np.zeros((CHESS_DIM[0] * CHESS_DIM[1], 3), np.float32)
 obj_3D[:,:2] = np.mgrid[0:CHESS_DIM[0], 0:CHESS_DIM[1]].T.reshape(-1, 2)
-obj_3D *= VERTICE_SIZE
+obj_3D *= SIDE_SIZE
 print(obj_3D, "\n")
 
 # Array to store object points and image points from all the images.

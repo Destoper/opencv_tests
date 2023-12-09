@@ -14,9 +14,9 @@ EXIST_DIR = os.path.exists(calib_data_path)
 
 if not EXIST_DIR:
     os.makedirs(calib_data_path)
-    print(f"{calib_data_path} Directory is created")
+    print(f"{calib_data_path} Directory is created \n")
 else:
-    print(f"{calib_data_path} Directory already exists")
+    print(f"{calib_data_path} Directory already exists \n")
 
 # prepare object points
 obj_3D = np.zeros((CHESS_DIM[0] * CHESS_DIM[1], 3), np.float32)
@@ -29,6 +29,10 @@ obj_points_3D, img_points_2D = [], []
 
 image_dir_path = "images"
 files = os.listdir(image_dir_path)
+
+if len(files) == 0:
+    print(f"Error: No files in the {image_dir_path} directory")
+    exit()
 
 for file in files:
     print(file)
